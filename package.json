@@ -2,7 +2,7 @@
 	"name": "@synpatico/client",
 	"private": false,
 	"version": "1.0.0",
-	"description": "Monkey patcu",
+	"description": "Synpatico client library",
 	"author": "Michael Sweeney <overthemike@gmail.com>",
 	"type": "module",
 	"source": "./src/index.ts",
