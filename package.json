@@ -1,7 +1,7 @@
 {
 	"name": "@synpatico/client",
 	"private": false,
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Synpatico client library",
 	"author": "Michael Sweeney <overthemike@gmail.com>",
 	"type": "module",
