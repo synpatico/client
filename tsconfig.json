@@ -1,21 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "es2022",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-    "outDir": "dist",
-  },
-  "include": ["src", "lib/analytics/analytics-hooks"]
+	"compilerOptions": {
+		"target": "es2022",
+		"useDefineForClassFields": true,
+		"module": "esnext",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"declaration": true,
+		"declarationMap": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true,
+		"outDir": "dist"
+	},
+	"include": ["src", ".archive/lib/analytics/analytics-hooks"]
 }

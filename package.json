@@ -1,37 +1,121 @@
 {
-  "name": "@synpatico/client",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "files": [
-    "dist",
-    "index.d.ts"
-  ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsup",
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.1.4",
-    "@types/node": "^24.2.1",
-    "fastify": "^5.4.0",
-    "tsup": "^8.5.0",
-    "typescript": "~5.9.2",
-    "vite": "^7.0.6",
-    "vitest": "^3.2.4"
-  },
-  "dependencies": {
-    "@synpatico/core": "link:../core/packages/core",
-    "list": "link:../../../../Library/pnpm/global/5/node_modules/list",
-    "proxy-compare": "^3.0.1"
-  }
+	"name": "@synpatico/client",
+	"private": false,
+	"version": "1.0.0",
+	"description": "Monkey patcu",
+	"author": "Michael Sweeney <overthemike@gmail.com>",
+	"type": "module",
+	"source": "./src/index.ts",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.cjs"
+			},
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"./patch": {
+			"require": {
+				"types": "./dist/patch.d.ts",
+				"default": "./dist/patch.cjs"
+			},
+			"import": {
+				"types": "./dist/patch.d.ts",
+				"default": "./dist/patch.js"
+			}
+		},
+		"./client": {
+			"require": {
+				"types": "./dist/client.d.ts",
+				"default": "./dist/client.cjs"
+			},
+			"import": {
+				"types": "./dist/client.d.ts",
+				"default": "./dist/client.js"
+			}
+		}
+	},
+	"scripts": {
+		"build": "pnpm run clean && pnpm run build:types && pnpm run build:js",
+		"build:types": "tsc --emitDeclarationOnly --declarationMap",
+		"build:js": "tsup",
+		"changeset": "changeset",
+		"version": "changeset version",
+		"release": "changeset publish",
+		"clean": "rm -rf dist",
+		"lint": "biome lint",
+		"lint:fix": "biome lint --fix",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "pnpm run build",
+		"bench": "vitest bench",
+		"coverage": "vitest run --coverage",
+		"test:ui": "vitest --ui"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/synpatico/client.git"
+	},
+	"bugs": {
+		"url": "https://github.com/synpatico/client/issues"
+	},
+	"homepage": "https://github.com/synpatico/client",
+	"directories": {
+		"test": "tests"
+	},
+	"dependencies": {
+		"@synpatico/core": "^1.0.0",
+		"proxy-compare": "^3.0.1"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.4",
+		"@changesets/cli": "^2.29.5",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@types/benchmark": "^2.1.5",
+		"@types/node": "^22.13.14",
+		"@vitest/coverage-v8": "^3.0.9",
+		"@vitest/ui": "^3.0.9",
+		"fastify": "^5.5.0",
+		"jsdom": "^26.1.0",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.2",
+		"vite": "^6.2.3",
+		"vitest": "^3.0.9"
+	},
+	"keywords": [
+		"protocol",
+		"serialization",
+		"encoding",
+		"decoding",
+		"json",
+		"optimization",
+		"performance",
+		"compression",
+		"data-structure",
+		"adaptive",
+		"cache",
+		"lru-cache",
+		"stateless",
+		"payload-optimization",
+		"value-extraction",
+		"structure-definition",
+		"typescript",
+		"schema",
+		"binary",
+		"streaming"
+	]
 }
